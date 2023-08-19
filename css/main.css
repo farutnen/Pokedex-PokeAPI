@@ -17,12 +17,15 @@
     --type-volador: #A890F0;
     --type-psiquico: #F85888;
     --type-bicho: #A8B820;
-    --type-roca: #88A038;
+    --type-roca: #a38c21;
     --type-fantasma: #705898;
     --type-siniestro: #705848;
     --type-dragon: #7038F8;
     --type-acero: #B8BBD0;
     --type-hada: #F0B6BC;
+
+    --color-primary: #006d77;
+	--color-primary-hover: #83c5be;
 }
 
 *{
@@ -38,39 +41,38 @@ ul{
     list-style-type: none;
 }
 
-.icon-filter{
-    border: 0;
-    border-radius: 12px;
-    display: flex;
-    font-size: 18px;
-    margin-top: 20px;
-    padding: 10px 14px;
-    cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 0 .5rem rgba(0,0,0, .15);
-
-}
-
-.icon-filter:hover{
-    transform: scale(1.1);
-    box-shadow: 0 0 2rem rgba(0,0,0, .25);
-}
-
-button{
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
-}
 
 body{
-    min-height: 100vh;
+    max-height: 100vh;
     background-color: var(--clr-gray);
 }
 
-header{
-    padding-block: 1rem;
-    box-shadow: 0 0 .5rem -1rem rgba(0,0,0, .15);
+
+
+.icon-search{
+    width: 20px;
+    height: 20px;
+    stroke: #555;
 }
+
+.btn-search{
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-family: inherit;
+    padding: 15px 30px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.btn-search:hover{
+    background-color: var(--color-primary-hover);
+    color: #000;
+}
+
+
 
 .nav{
     display: flex;
@@ -90,15 +92,13 @@ header{
     height: 100%;
     position: 0;
     gap: .5rem;
-    left: 0;
-    padding-top: 10px;
-    transition: all .3s linear;
+    left: 300px;
 }
 
-.container-filters:active{
-    left: 0;
-    display: block;
+.nav-list.active{
+    display: none;
 }
+
 .btn-header{
     background-color: var(--clr-gray);
     padding: .5rem;
@@ -142,6 +142,9 @@ main{
 
 }
 
+/*--------------------------*/
+/*==========POKEMON======== */
+/*--------------------------*/
 .pokemon{
     border-radius: 1rem;
     background-color: var(--clr-white);
@@ -175,7 +178,6 @@ main{
     max-width: 6rem;
 }
 
-
 .pokemon-info{
     display: flex;
     flex-direction: column;
@@ -205,6 +207,11 @@ main{
 .pokemon-nombre{
     font-size: 1.4rem;
 }
+
+/*----------------------------------------*/
+/*----------------------------------------*/
+/*-------------- tipos  ------------------*/
+/*----------------------------------------*/
 
 .pokemon-tipos{
     display: flex;
@@ -295,7 +302,7 @@ main{
 
 .rock{
     background-color: var(--type-roca);
-    color: var(--clr-black);
+    color: var(--clr-white);
 }
 
 .ghost{
@@ -323,14 +330,193 @@ main{
     color: var(--clr-black);
 }
 
+.container{
+    max-width: 100%;
+    margin: auto;
+    margin-right: 4%;
+}
 
 body{
     min-height: 100vh;
     background-color: var(--clr-gray);
 }
 
+/*----------------------------------*/
+/*----------------------------------*/ 
+/* ------------ Header -------------*/
+/*----------------------------------*/
+
 header{
     background-color: var(--clr-gray);
     padding-block: 1rem;
     box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.logo img{
+width: 550px;
+}
+
+
+header form{
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid #555;
+    padding: 15px 20px;
+    border-radius: 25px;
+}
+
+.form-group input{
+    font-family: inherit;
+    width: 250px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    opacity: 50%;
+    background-color: #0000;
+}
+
+/*-------------*/
+/*-------------*/
+/* iconfilter  */
+/*-------------*/
+
+
+.icon-filter{
+    border: 0;
+    border-radius: 12px;
+    display: flex;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 0 .5rem rgba(0,0,0, .15);
+
+}
+
+.icon-filter:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 2rem rgba(0,0,0, .25);
+}
+
+button{
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+/* 
+======================================= 
+Styles of Pokemon Single Page
+======================================= 
+*/
+
+.main-pokemon{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.header-main-pokemon{
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.number-pokemon{
+    position: absolute;
+    top: -70px;
+    left: 0;
+    opacity: 70%;
+    z-index: -1;
+    font-size: 300px;
+    font-weight: 700;
+    color: var(--color-primary-hover);
+}
+
+.container-img-pokemon{
+    order: 2;
+    flex: 1;
+    padding: 25px 25px 25px 0;
+}
+
+.container-img-pokemon img{
+    width: 100%;
+}
+
+.container-info-pokemon{
+    display: flex;
+    flex-direction: column;
+
+    order: 1;
+    flex: 1;
+}
+
+.container-info-pokemon h1{
+    text-align: right;
+    font-size: 50px;
+
+
+}
+
+.info-pokemon{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+}
+
+.group-info p{
+    font-weight: 700;
+}
+
+/* Stats */
+.container-stats{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.stat-group{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-group span{
+    flex: 20%;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 30px;
+    background-color: var(--color-primary);
+    border-radius: 10px;
 }
