@@ -63,7 +63,7 @@ const botonId = event.currentTarget.id;
 
 listaPokemon.innerHTML = "";
 
-for (let i = 1; i <= 151; i++) {
+for (let i = 1; i <= 493; i++) {
     fetch(URL + i)
         .then((response) => response.json())
         .then(data => {
